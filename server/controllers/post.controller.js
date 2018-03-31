@@ -38,6 +38,7 @@ export function addPost(req, res) {
 
   newPost.slug = slug(newPost.title.toLowerCase(), { lowercase: true });
   newPost.cuid = cuid();
+  newPost.votes = 0;
   newPost.save((err, saved) => {
     if (err) {
       res.status(500).send(err);
@@ -60,7 +61,6 @@ export function getPost(req, res) {
     res.json({ post });
   });
 }
-
 
 /**
  * Edit a post

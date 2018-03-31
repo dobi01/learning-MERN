@@ -6,7 +6,7 @@ import PostList from '../../components/PostList';
 import PostCreateWidget from '../../components/PostCreateWidget/PostCreateWidget';
 
 // Import Actions
-import { addPostRequest, fetchPosts, deletePostRequest } from '../../PostActions';
+import { addPostRequest, fetchPosts, deletePostRequest, thumbUpRequest, thumbDownRequest } from '../../PostActions';
 import { toggleAddPost } from '../../../App/AppActions';
 
 // Import Selectors
@@ -18,22 +18,38 @@ class PostListPage extends Component {
     this.props.dispatch(fetchPosts());
   }
 
+  handleThumbUp = (cuid, post) => {
+    this.props.dispatch(thumbUpRequest(cuid, post));
+  };
+
+  handleThumbDown = (cuid, post) => {
+    this.props.dispatch(thumbDownRequest(cuid, post));
+  };
+
   handleDeletePost = post => {
     if (confirm('Do you want to delete this post')) { // eslint-disable-line
       this.props.dispatch(deletePostRequest(post));
     }
   };
 
-  handleAddPost = (name, title, content) => {
+  handleAddPost = (name, title, content, votes) => {
     this.props.dispatch(toggleAddPost());
-    this.props.dispatch(addPostRequest({ name, title, content }));
+    this.props.dispatch(addPostRequest({ name, title, content, votes }));
   };
 
   render() {
     return (
       <div>
-        <PostCreateWidget addPost={this.handleAddPost} showAddPost={this.props.showAddPost} />
-        <PostList handleDeletePost={this.handleDeletePost} posts={this.props.posts} />
+        <PostCreateWidget
+          addPost={this.handleAddPost}
+          showAddPost={this.props.showAddPost}
+        />
+        <PostList
+          handleThumbUp={this.handleThumbUp}
+          handleThumbDown={this.handleThumbDown}
+          handleDeletePost={this.handleDeletePost}
+          posts={this.props.posts}
+        />
       </div>
     );
   }
@@ -55,6 +71,7 @@ PostListPage.propTypes = {
     name: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     content: PropTypes.string.isRequired,
+    votes: PropTypes.number.isRequired,
   })).isRequired,
   showAddPost: PropTypes.bool.isRequired,
   dispatch: PropTypes.func.isRequired,

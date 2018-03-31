@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
-import { getShowEditPost } from '../../../App/AppReducer';
 
 import { toggleEditPost } from '../../../App/AppActions';
 import { injectIntl, FormattedMessage } from 'react-intl';
@@ -14,6 +13,7 @@ import { fetchPost, editPostRequest } from '../../PostActions';
 
 // Import Selectors
 import { getPost } from '../../PostReducer';
+import { getShowEditPost } from '../../../App/AppReducer';
 
 export class PostDetailPage extends React.Component {
   constructor(props) {
