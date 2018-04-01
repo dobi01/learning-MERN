@@ -1,9 +1,9 @@
 /* About styles */
 
-h2 {
+.about h2 {
     padding-top: 50px;
 }
 
-p {
+.about p {
     padding-top: 20px;
 }

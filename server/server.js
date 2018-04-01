@@ -80,8 +80,8 @@ const renderFullPage = (html, initialState) => {
         ${head.script.toString()}
 
         ${isProdMode ? `<link rel='stylesheet' href='${assetsManifest['/app.css']}' />` : ''}
-        <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' content="default-src 'self'; 
-        font-src 'self' data: fonts.googleapis.com;" rel='stylesheet' type='text/css'/>
+        <link http-equiv="Content-Security-Policy" href='https://fonts.googleapis.com/css?family=Lato:400,300,700' content="font-src 'self' https://fonts.googleapis.com" 
+        rel='stylesheet' type='text/css'/>
         <link rel="shortcut icon" href="http://res.cloudinary.com/hashnode/image/upload/v1455629445/static_imgs/mern/mern-favicon-circle-fill.png" type="image/png" />
       </head>
       <body>

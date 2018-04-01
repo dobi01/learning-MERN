@@ -1,10 +1,10 @@
 import React from 'react';
-import './Home.css';
+import styles from './Home.css';
 
 const Home = () => {
   return (
     <div>
-      <h2>Hello world!</h2>
+      <h2 className={styles.home}>Hello world!</h2>
     </div>
   );
 };
