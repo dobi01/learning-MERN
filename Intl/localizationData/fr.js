@@ -2,6 +2,9 @@ export default {
   locale: 'fr',
   messages: {
     siteTitle: 'MERN blog de démarrage',
+    home: 'PAGE D\'ACCUEIL',
+    posts: 'POSTES',
+    about: 'SUR',
     addPost: 'Ajouter Poster',
     editPost: 'Modifier le message',
     switchLanguage: 'Changer de langue',
