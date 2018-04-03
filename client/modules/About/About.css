@@ -1,9 +1,13 @@
 /* About styles */
 
-h2 {
-    padding-top: 50px;
+.about h2 {
+    font-size: 28px;
+    font-weight: 400;
+    color: #616161;
 }
 
-p {
+.about p {
     padding-top: 20px;
+    font-size: 14px;
+    color: #888;
 }

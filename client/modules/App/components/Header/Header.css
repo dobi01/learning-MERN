@@ -42,6 +42,7 @@
   width: 980px;
   margin: auto;
   text-align: right;
+  position: relative;
 }
 
 .language-switcher li {
