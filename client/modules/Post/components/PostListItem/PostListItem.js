@@ -17,8 +17,8 @@ function PostListItem(props) {
       <p className={styles['post-desc']}>{props.post.content}</p>
       <div>
         <span><FormattedMessage id="votes" /> {props.post.votes} </span>
-        <button onClick={props.onThumbUp}> +1 </button>
-        <button onClick={props.onThumbDown}> -1 </button>
+        <button onClick={props.onThumbUp}><i className="far fa-thumbs-up"></i></button>
+        <button onClick={props.onThumbDown}><i className="far fa-thumbs-down"></i></button>
       </div>
       <p className={styles['post-action']}><a href="#" onClick={props.onDelete}><FormattedMessage id="deletePost" /></a></p>
       <hr className={styles.divider} />
